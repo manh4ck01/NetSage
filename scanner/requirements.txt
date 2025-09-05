@@ -1,0 +1,14 @@
+# Scanner Engine Dependencies
+# Core networking and packet manipulation
+scapy>=2.4.5
+
+# Optional: Enhanced performance and features
+# psutil>=5.8.0          # System and network utilities
+# python-nmap>=0.7.1     # Nmap integration (optional)
+# colorama>=0.4.4        # Cross-platform colored terminal output
+# tqdm>=4.62.0           # Progress bars
+
+# Development dependencies (optional)
+# pytest>=6.0.0          # Testing framework
+# black>=21.0.0          # Code formatting
+# mypy>=0.900            # Type checking

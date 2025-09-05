@@ -1,0 +1,186 @@
+## requirements.txt
+
+```txt
+# NetSage Network Scanner - Dependencies
+# Core Requirements
+
+# Network scanning and packet manipulation
+scapy>=2.4.5
+python-nmap>=0.7.1
+
+# CLI and output formatting
+rich>=12.6.0
+argparse>=1.4.0
+
+# Web requests and banner grabbing
+requests>=2.28.1
+beautifulsoup4>=4.11.1
+lxml>=4.9.1
+
+# HTML reporting
+jinja2>=3.1.2
+markupsafe>=2.1.1
+
+# Data processing and ML (current and future)
+numpy>=1.23.5
+pandas>=1.5.2
+scikit-learn>=1.2.0
+xgboost>=1.7.1
+joblib>=1.2.0
+
+# Configuration handling
+pyyaml>=6.0
+python-dotenv>=0.21.0
+
+# Async operations (for future enhancements)
+aiohttp>=3.8.3
+asyncio>=3.4.3
+
+# Additional utilities
+tqdm>=4.64.1
+python-dateutil>=2.8.2
+psutil>=5.9.4
+
+# Development dependencies (optional)
+pytest>=7.2.0
+pytest-cov>=4.0.0
+black>=22.12.0
+flake8>=6.0.0
+mypy>=0.991
+sphinx>=5.3.0
+```
+
+## requirements-dev.txt (Optional - for development)
+
+```txt
+# Development dependencies for NetSage
+-r requirements.txt
+
+# Testing
+pytest>=7.2.0
+pytest-cov>=4.0.0
+pytest-asyncio>=0.20.3
+pytest-mock>=3.10.0
+
+# Code formatting and linting
+black>=22.12.0
+flake8>=6.0.0
+isort>=5.12.0
+mypy>=0.991
+pre-commit>=3.0.4
+
+# Documentation
+sphinx>=5.3.0
+sphinx-rtd-theme>=1.2.0
+sphinx-autodoc-typehints>=1.22.0
+
+# Packaging
+twine>=4.0.2
+build>=0.9.0
+setuptools>=65.6.0
+wheel>=0.38.0
+
+# Debugging
+ipython>=8.7.0
+debugpy>=1.6.3
+```
+
+## Minimal requirements.txt (If you want to start small)
+
+```txt
+# NetSage Minimal Requirements
+scapy>=2.4.5
+rich>=12.6.0
+requests>=2.28.1
+jinja2>=3.1.2
+pyyaml>=6.0
+argparse>=1.4.0
+```
+
+## Installation Instructions
+
+Add this to your README.md:
+
+```markdown
+## Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/manh4ck01/netsage.git
+cd netsage
+```
+
+2. Install dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+3. For development:
+```bash
+pip install -r requirements-dev.txt
+```
+
+## .gitignore Update
+
+Add this to your `.gitignore` to exclude Python virtual environments:
+
+```gitignore
+# Virtual environments
+venv/
+env/
+ENV/
+.env/
+.venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+```
+
+## Setup Script (Optional)
+
+You might also want to create a `setup.py` for package installation:
+
+```python
+from setuptools import setup, find_packages
+
+setup(
+    name="netsage",
+    version="0.1.0",
+    packages=find_packages(),
+    install_requires=[
+        "scapy>=2.4.5",
+        "rich>=12.6.0",
+        "requests>=2.28.1",
+        "jinja2>=3.1.2",
+        "pyyaml>=6.0",
+        "argparse>=1.4.0",
+    ],
+    entry_points={
+        'console_scripts': [
+            'netsage=netsage.cli.main:main',
+        ],
+    },
+)
+```
+
+## Verification
+
+After creating `requirements.txt`, test the installation:
+
+```bash
+# Create a virtual environment (recommended)
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Test that imports work
+python -c "from scanner.discover import discover_hosts; print('✓ Scanner imports work')"
+python -c "from fingerprints.mac_lookup import MACLookup; print('✓ Fingerprinting imports work')"
+python -c "from report.output_cli import generate_cli_output; print('✓ Reporting imports work')"
+```

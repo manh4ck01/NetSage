@@ -1,0 +1,100 @@
+# NetSage Configuration Example
+# Copy this file to config.yaml and customize for your needs
+
+scan:
+  # Default ports to scan (comma-separated or ranges)
+  default_ports: "21,22,23,25,53,80,110,135,139,143,443,993,995,1433,3306,3389,5432,5900,8000,8080,8443"
+  
+  # Network timeout in seconds
+  timeout: 3.0
+  
+  # Number of concurrent threads for scanning
+  threads: 50
+  
+  # Skip host discovery phase (assume all targets are live)
+  skip_discovery: false
+  
+  # Skip banner grabbing phase
+  skip_banners: false
+  
+  # Perform UDP scanning instead of TCP
+  udp_scan: false
+
+output:
+  # Default output format: cli, json, csv, html, txt
+  default_format: "cli"
+  
+  # JSON output indentation
+  json_indent: 2
+  
+  # HTML template to use
+  html_template: "default"
+  
+  # Whether to colorize CLI output
+  colorize_cli: true
+
+fingerprinting:
+  # Enable MAC vendor lookup
+  enable_mac: true
+  
+  # Enable OS fingerprinting
+  enable_os: true
+  
+  # Path to MAC OUI database (will be auto-downloaded if missing)
+  mac_db_path: "data/oui.txt"
+  
+  # Default TTL value for OS fingerprinting (if not provided via CLI)
+  default_ttl: 64
+  
+  # Default window size for OS fingerprinting (if not provided via CLI)
+  default_window: 5840
+
+performance:
+  # Maximum number of threads to use
+  max_threads: 100
+  
+  # Connection timeout in seconds
+  connection_timeout: 5.0
+  
+  # Number of retry attempts for failed connections
+  retry_attempts: 2
+  
+  # Delay between retry attempts in seconds
+  retry_delay: 1.0
+
+logging:
+  # Log level: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  level: "INFO"
+  
+  # Log file path (empty for console logging only)
+  file_path: ""
+  
+  # Maximum log file size in MB
+  max_file_size: 10
+  
+  # Number of backup log files to keep
+  backup_count: 5
+
+plugins:
+  # Enable plugin system
+  enabled: true
+  
+  # Plugin directory path
+  plugin_dir: "plugins"
+  
+  # Auto-reload plugins on change (development only)
+  auto_reload: false
+
+# ML module configuration (for future use)
+ml:
+  # Enable ML device classification
+  enabled: false
+  
+  # Path to trained model file
+  model_path: "data/models/device_classifier.pkl"
+  
+  # Minimum confidence threshold for predictions (0.0-1.0)
+  confidence_threshold: 0.7
+  
+  # Path to training dataset
+  dataset_path: "data/sample_dataset.csv"
